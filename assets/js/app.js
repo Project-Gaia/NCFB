@@ -1,30 +1,5 @@
 var VolunteerManager = new Marionette.Application();
 
-VolunteerManager.StaticView = Marionette.ItemView.extend({
-  template: "#welcome-screen-template",
-
-  ui: {
-    checkIn: "#welcome-check-in-btn",
-    checkOut: "#welcome-check-out-btn"
-  },
-
-  events: {
-    "click @ui.checkIn": "CheckInOnClick",
-    "click @ui.checkOut": "CheckOutOnClick"
-  },
-
-  CheckInOnClick: function(e){
-    e.preventDefault();
-    e.stopPropagation();
-    VolunteerManager.VolunteerApp.ApplicableOptions.Controller.display();
-  },
-
-  CheckOutOnClick: function(){
-    console.log("Check-out clicked!");
-  }
-
-})
-
 VolunteerManager.on("before:start", function(){
   var RegionContainer = Marionette.LayoutView.extend({
     el: "#app-container",
@@ -37,8 +12,24 @@ VolunteerManager.on("before:start", function(){
   VolunteerManager.regions = new RegionContainer();
 })
 
-VolunteerManager.on("start", function(){
-  var staticView = new VolunteerManager.StaticView();
+VolunteerManager.navigate = function(route,  options){
+  options || (options = {});
+  Backbone.history.navigate(route, options);
+};
 
-  VolunteerManager.regions.main.show(staticView);
+VolunteerManager.getCurrentRoute = function(){
+  return Backbone.history.fragment
+};
+
+
+VolunteerManager.on("start", function(){
+
+  if (Backbone.history){
+    Backbone.history.start();
+  }
+
+  if(this.getCurrentRoute() === ""){
+    Backbone.history.navigate("welcomeScreen");
+    VolunteerManager.VolunteerApp.WelcomeScreen.Controller.display();
+  }
 })
