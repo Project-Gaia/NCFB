@@ -36,7 +36,7 @@
       <h1>Select the applicable options</h1>
       <div>
         <p>
-          <label for="num-hours-spinner">Number of Hours:</label>
+          <label for="num-hours-spinner">Number of Hours:</label><br>
           <input id="num-hours-spinner" name="value">
         </p>
         <input type="radio" name="volunteer-type" value="individual">Individual<br>
@@ -45,7 +45,23 @@
       </div>
 
       <button id="applicable-options-next-btn" class="btn btn-large btn-success"> Next </button>
+    </script>
 
+    <script type="text/template" id="individual-finder-template">
+      <h1>Find yourself and check-in</h1>
+
+      <p>
+        <label for "individual-finder-first-name-txtbox">First Name:</label><br>
+        <input id="individual-finder-first-name-txtbox"><br>
+        <label for "individual-finder-last-name-txtbox">Last Name:</label><br>
+        <input id="individual-finder-last-name-txtbox"><br>
+        <label for "individual-finder-dob-datepicker">Date of Birth:</label><br>
+        <input id="individual-finder-dob-datepicker">
+      </p>
+
+      <button id="individual-finder-find-btn" class="btn btn-large btn-warning">Find</button>
+      <button id="individual-finder-check-in-btn" class="btn btn-large btn-success">Check-In</button>
+      <button id="individual-finder-start-over-btn" class="btn btn-large btn-danger">Start Over</button>
     </script>
 
     <script src="assets/js/vendor/jquery-2.1.4.min.js"></script>
@@ -54,7 +70,6 @@
     <script src="assets/js/vendor/underscore.js"></script>
     <script src="assets/js/vendor/backbone.js"></script>
     <script src="assets/js/vendor/backbone.marionette.js"></script>
-    <script src="assets/js/Welcome.js"></script>
     <script src="assets/js/app.js"></script>
     <script src="assets/js/entities/person.js"></script>
     <script src="assets/js/apps/volunteer_app.js"></script>
@@ -62,6 +77,8 @@
     <script src="assets/js/apps/applicable_options_controller.js"></script>
     <script src="assets/js/apps/welcome_screen_view.js"></script>
     <script src="assets/js/apps/welcome_screen_controller.js"></script>
+    <script src="assets/js/apps/individual_finder_view.js"></script>
+    <script src="assets/js/apps/individual_finder_controller.js"></script>
     <script type="text/javascript">
       VolunteerManager.start();
     </script>

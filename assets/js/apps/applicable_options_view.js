@@ -16,8 +16,11 @@ VolunteerManager.module("VolunteerApp.ApplicableOptions", function(ApplicableOpt
         this.ui.numHoursSpinner.spinner();
       },
 
-      BtnNextOnClick: function(){
-        
+      BtnNextOnClick: function(e){
+        e.preventDefault();
+        e.stopPropagation();
+        VolunteerManager.VolunteerApp.IndividualFinder.Controller.display();
+        Backbone.history.navigate("individualFinder");
       }
 
     })
