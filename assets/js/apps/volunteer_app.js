@@ -3,17 +3,24 @@ VolunteerManager.module("VolunteerApp", function(VolunteerApp, VolunteerManager,
      VolunteerApp.Router = Marionette.AppRouter.extend({
        appRoutes: {
          "welcomeScreen": "displayWelcomeScreen",
-         "applicableOptions": "displayApplicableOptions"
+         "applicableOptions": "displayApplicableOptions",
+         "individualFinder": "displayIndividualFinder",
+         "signUp": "displaySignUp"
        }
      })
 
      var API = {
        displayApplicableOptions: function(){
          VolunteerApp.ApplicableOptions.Controller.display();
-         //VolunteerApp.ApplicableOptions.Controller.display();
        },
        displayWelcomeScreen: function(){
          VolunteerApp.WelcomeScreen.Controller.display();
+       },
+       displayIndividualFinder: function(){
+         VolunteerApp.IndividualFinder.Controller.display();
+       },
+       displaySignUp: function(){
+         VolunteerApp.SignUp.Controller.display();
        }
      };
 

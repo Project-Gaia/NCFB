@@ -59,9 +59,44 @@
         <input id="individual-finder-dob-datepicker">
       </p>
 
+      <div id="individual-finder-cannot-find-user" class="hidden">
+        <div>
+          We were unable to find you, please make sure your information is correct.
+        </div>
+        <div>
+          Or click the button below to create NC Food Bank account.
+        </div>
+        <button id="individual-finder-create-account-btn" class="btn btn-large btn-info">Create Account</button>
+        <br>
+        <br>
+      </div>
       <button id="individual-finder-find-btn" class="btn btn-large btn-warning">Find</button>
       <button id="individual-finder-check-in-btn" class="btn btn-large btn-success">Check-In</button>
       <button id="individual-finder-start-over-btn" class="btn btn-large btn-danger">Start Over</button>
+    </script>
+
+    <script type="text/template" id="sign-up-template">
+      <h1>Create an account</h1>
+
+      <p>
+        <label for "sign-up-first-name-txtbox">First Name:</label><br>
+        <input id="sign-up-first-name-txtbox"><br>
+        <label for "sign-up-last-name-txtbox">Last Name:</label><br>
+        <input id="sign-up-last-name-txtbox"><br>
+        <label for "sign-up-dob-datepicker">Date of Birth:</label><br>
+        <input id="sign-up-dob-datepicker"><br>
+        <label for "sign-up-emergency-contact">Emergency Contact:</label><br>
+        <input id="sign-up-emergency-contact"><br>
+        <label for "sign-up-emergency-contact-phone">Emergency Contact Phone #:</label><br>
+        <input id="sign-up-emergency-contact-phone"><br>
+        <label><input type="checkbox" id="sign-up-terms-agreement">I agree with NC Food Bank terms.</label><br>
+      </p>
+
+      <button id="sign-up-create-btn" class="btn btn-large btn-success">Create</button>
+      <button id="sign-up-cancel-btn" class="btn btn-large btn-danger">Cancel</button>
+
+
+
     </script>
 
     <script src="assets/js/vendor/jquery-2.1.4.min.js"></script>
@@ -79,6 +114,8 @@
     <script src="assets/js/apps/welcome_screen_controller.js"></script>
     <script src="assets/js/apps/individual_finder_view.js"></script>
     <script src="assets/js/apps/individual_finder_controller.js"></script>
+    <script src="assets/js/apps/sign_up_view.js"></script>
+    <script src="assets/js/apps/sign_up_controller.js"></script>
     <script type="text/javascript">
       VolunteerManager.start();
     </script>
