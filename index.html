@@ -13,6 +13,9 @@
     <!-- jQuery ui css -->
     <link href="assets/css/jquery-ui.theme.min.css" rel="stylesheet">
     <link href="assets/css/jquery-ui.structure.min.css" rel="stylesheet">
+    <!-- Backbone.Modal css -->
+    <link href="assets/css/backbone.modal.css" rel="stylesheet">
+    <link href="assets/css/backbone.modal.theme.css" rel="stylesheet">
   </head>
   <body>
 
@@ -77,6 +80,7 @@
 
     <script type="text/template" id="sign-up-template">
       <h1>Create an account</h1>
+      <div class="app" id="terms-modal-container"></div>
 
       <p>
         <label for "sign-up-first-name-txtbox">First Name:</label><br>
@@ -89,14 +93,36 @@
         <input id="sign-up-emergency-contact"><br>
         <label for "sign-up-emergency-contact-phone">Emergency Contact Phone #:</label><br>
         <input id="sign-up-emergency-contact-phone"><br>
-        <label><input type="checkbox" id="sign-up-terms-agreement">I agree with NC Food Bank terms.</label><br>
+        <label><input type="checkbox" id="sign-up-terms-agreement">I agree with NC Food Bank
+          <a href="#signUp" class="open" id="terms-link">
+            terms.
+          </a></label><br>
       </p>
 
       <button id="sign-up-create-btn" class="btn btn-large btn-success">Create</button>
       <button id="sign-up-cancel-btn" class="btn btn-large btn-danger">Cancel</button>
 
+    </script>
 
-
+    <script type="text/template" id="modal-template">
+      <div class="bbm-modal__topbar">
+        <h3 class="bbm-modal__title">Consent Form</h3>
+        <p>
+          I understand that volunteerism at the Food Bank of Central & Eastern North Carolina may sometimes mean working in warehouse conditions and can sometimes include but is not limited to lifting, working around heavy moving equipment and handling damaged food products. I hereby accept and assume full responsibility for any injury I might suffer while volunteering at the Food Bank of Central & Eastern North of Carolina. Volunteers are expected to follow safety rules and all other rules related to the warehouse. In the event of injury parents/guardians authorizes Food bank staff to seek treatment for minor volunteers (volunteers under 18 years of age) and to take other action should a medical emergency arise and waive and release my right for damages.
+          <br>
+          <br>
+          <b>Parental Permission:</b> The Food Bank of Central & Eastern North Carolina will take all precautions to provide and maintain a safe environment for its volunteers. Volunteers are expected to follow safety rules and all other rules related to the warehouse. The Food Banks accepts no liability for minor volunteers who leave the Food Bank property without parental or guardian consent.
+          <br>
+          <br>
+          <b>Photo release:</b> I hereby give the Food Bank of Central & Eastern North Carolina permission to copyright and/or use, reuse and/or publish and/or republish pictures or images of me for the purpose of illustration, advertising, and promoting the Food Bank of Central & Eastern North Carolina thorugh any medium. The Food Bank of Central & Eastern North Carolina has the right to change or alter this material
+        </p>
+      </div>
+      <div class="bbm-modal__section">
+      </div>
+      <div class="bbm-modal__bottombar">
+        <a href="#" class="btn btn-large btn-success btn-agree">I agree</a>
+        <a href="#" class="btn btn-large btn-danger btn-disagree">Cancel</a>
+      </div>
     </script>
 
     <script src="assets/js/vendor/jquery-2.1.4.min.js"></script>
@@ -105,6 +131,8 @@
     <script src="assets/js/vendor/underscore.js"></script>
     <script src="assets/js/vendor/backbone.js"></script>
     <script src="assets/js/vendor/backbone.marionette.js"></script>
+    <script src="assets/js/vendor/backbone.modal-min.js"></script>
+    <script src="assets/js/vendor/backbone.marionette.modals-min.js"></script>
     <script src="assets/js/app.js"></script>
     <script src="assets/js/entities/person.js"></script>
     <script src="assets/js/apps/volunteer_app.js"></script>
@@ -116,6 +144,23 @@
     <script src="assets/js/apps/individual_finder_controller.js"></script>
     <script src="assets/js/apps/sign_up_view.js"></script>
     <script src="assets/js/apps/sign_up_controller.js"></script>
+
+    <script>
+      jQuery(function($) {
+        // Create a modal view class
+        var Modal = Backbone.Modal.extend({
+          template: '#modal-template',
+          cancelEl: '.bbm-button'
+        });
+
+        $('#terms-link').on('click', function(){
+          // Render an instance of your modal
+          var modalView = new Modal();
+          $('#terms-modal-container').html(modalView.render().el);
+        });
+      });
+    </script>
+
     <script type="text/javascript">
       VolunteerManager.start();
     </script>
