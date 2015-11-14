@@ -145,22 +145,6 @@
     <script src="assets/js/apps/sign_up_view.js"></script>
     <script src="assets/js/apps/sign_up_controller.js"></script>
 
-    <script>
-      jQuery(function($) {
-        // Create a modal view class
-        var Modal = Backbone.Modal.extend({
-          template: '#modal-template',
-          cancelEl: '.bbm-button'
-        });
-
-        $('#terms-link').on('click', function(){
-          // Render an instance of your modal
-          var modalView = new Modal();
-          $('#terms-modal-container').html(modalView.render().el);
-        });
-      });
-    </script>
-
     <script type="text/javascript">
       VolunteerManager.start();
     </script>
