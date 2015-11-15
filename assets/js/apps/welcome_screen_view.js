@@ -13,6 +13,11 @@ VolunteerManager.module("VolunteerApp.WelcomeScreen", function(WelcomeScreen
         "click @ui.checkOut": "CheckOutOnClick"
       },
 
+      onRender: function(){
+        // TODO: DEBUG ONLY
+        VolunteerManager.VolunteerApp.PersonCreated = false;
+      },
+
       CheckInOnClick: function(e){
         e.preventDefault();
         e.stopPropagation();

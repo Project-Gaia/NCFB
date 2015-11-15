@@ -4,7 +4,8 @@ VolunteerManager.module("VolunteerApp.SignUp", function(SignUp
     // Define our modal view class for the terms
     var Modal = Backbone.Modal.extend({
       template: '#modal-template',
-      cancelEl: '.bbm-button'
+      cancelEl: '#btn-disagree-terms',
+      submitEl: '#btn-agree-terms'
     });
 
     SignUp.Page = Marionette.ItemView.extend({
@@ -35,14 +36,30 @@ VolunteerManager.module("VolunteerApp.SignUp", function(SignUp
       LinkTermsOnClick: function(){
         // Render an instance of your modal
         var modalView = new Modal();
+
         $('#terms-modal-container').html(modalView.render().el);
+
+        $("#btn-agree-terms").on("click", function(){
+          console.log("user agrees!");
+        });
+
+        $("#btn-disagree-terms").on("click", function(){
+          console.log("user disagrees!");
+        });
       },
 
-      BtnCreateOnClick: function(){
-        // TODO: Need to implement
+      BtnCreateOnClick: function(e){
+        e.preventDefault();
+        e.stopPropagation();
+        // TODO: DEBUG ONLY
+        VolunteerManager.VolunteerApp.PersonCreated = true;
+        VolunteerManager.VolunteerApp.IndividualFinder.Controller.display();
+        Backbone.history.navigate("individualFinder");
       },
 
-      BtnCancelOnClick: function(){
+      BtnCancelOnClick: function(e){
+        e.preventDefault();
+        e.stopPropagation();
         VolunteerManager.VolunteerApp.WelcomeScreen.Controller.display();
         Backbone.history.navigate("welcomeScreen");
       }

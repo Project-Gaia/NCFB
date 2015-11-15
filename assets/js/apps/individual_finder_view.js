@@ -11,13 +11,15 @@ VolunteerManager.module("VolunteerApp.IndividualFinder", function(IndividualFind
         btnCheckIn: "#individual-finder-check-in-btn",
         btnStartOver: "#individual-finder-start-over-btn",
         divCannotFindUser: "#individual-finder-cannot-find-user",
-        btnCreateAccount: "#individual-finder-create-account-btn"
+        btnCreateAccount: "#individual-finder-create-account-btn",
+        divUserFound: "#individual-finder-record-found"
       },
 
       events: {
         "click @ui.btnFind": "BtnFindOnClick",
         "click @ui.btnStartOver": "BtnStartOverOnClick",
-        "click @ui.btnCreateAccount": "BtnCreateAccount"
+        "click @ui.btnCreateAccount": "BtnCreateAccount",
+        "click @ui.btnCheckIn": "BtnCheckIn"
       },
 
       onRender: function(){
@@ -26,18 +28,36 @@ VolunteerManager.module("VolunteerApp.IndividualFinder", function(IndividualFind
 
       BtnFindOnClick: function(){
         // TODO: Implement find once Database is hooked up
-        this.ui.divCannotFindUser.removeClass("hidden");
-        this.ui.divCannotFindUser.addClass("visible");
+        if (VolunteerManager.VolunteerApp.PersonCreated)
+        {
+          this.ui.divUserFound.removeClass("hidden");
+          this.ui.btnCheckIn.prop("disabled", false);
+        }
+        else
+        {
+          this.ui.divCannotFindUser.removeClass("hidden");
+        }
       },
 
-      BtnStartOverOnClick: function(){
+      BtnStartOverOnClick: function(e){
+        e.preventDefault();
+        e.stopPropagation();
         VolunteerManager.VolunteerApp.WelcomeScreen.Controller.display();
         Backbone.history.navigate("welcomeScreen");
       },
 
-      BtnCreateAccount: function(){
+      BtnCreateAccount: function(e){
+        e.preventDefault();
+        e.stopPropagation();
         VolunteerManager.VolunteerApp.SignUp.Controller.display();
         Backbone.history.navigate("signUp");
+      },
+
+      BtnCheckIn: function(e){
+        e.preventDefault();
+        e.stopPropagation();
+        VolunteerManager.VolunteerApp.CheckInSuccessful.Controller.display();
+        Backbone.history.navigate("checkInSuccessful");
       }
 
     })

@@ -6,4 +6,14 @@ VolunteerManager.module("VolunteerApp.SignUp", function(SignUp
         VolunteerManager.regions.main.show(sign_up_view);
       }
     }
+
+    SignUp.Model = Backbone.Model.extend({
+      defaults: {
+        firstName:"",
+        lastName:"",
+        dateOfBirth:"",
+        EmergencyContact:"",
+
+      }
+    })
 });
