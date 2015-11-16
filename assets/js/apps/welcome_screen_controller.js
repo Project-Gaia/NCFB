@@ -1,3 +1,7 @@
+/*
+   Author: Mark Sun
+   Date: 11/15/2015
+*/
 VolunteerManager.module("VolunteerApp.WelcomeScreen", function(WelcomeScreen
   , VolunteerManager, Backbone, Marionette, $, _){
     WelcomeScreen.Controller = {

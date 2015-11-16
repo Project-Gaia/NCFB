@@ -1,3 +1,7 @@
+/*
+   Author: Mark Sun
+   Date: 11/15/2015
+*/
 var VolunteerManager = new Marionette.Application();
 
 VolunteerManager.on("before:start", function(){
