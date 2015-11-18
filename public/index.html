@@ -42,9 +42,9 @@
           <label for="num-hours-spinner">Number of Hours:</label><br>
           <input id="num-hours-spinner" name="value">
         </p>
-        <input type="radio" name="volunteer-type" value="individual">Individual<br>
-        <input type="radio" name="volunteer-type" value="group">Group<br>
-        <input type="radio" name="volunteer-type" value="court-ordered">Court Ordered<br>
+        <input type="radio" name="volunteer-type" value="individual" id="applicable-options-individual-radio-box">Individual<br>
+        <input type="radio" name="volunteer-type" value="group" id="applicable-options-group-radio-box">Group<br>
+        <input type="radio" name="volunteer-type" value="court-ordered" id="applicable-options-court-ordered-radiobox">Court Ordered<br>
       </div>
 
       <button id="applicable-options-next-btn" class="btn btn-large btn-success"> Next </button>
@@ -61,6 +61,13 @@
         <label for "individual-finder-dob-datepicker">Date of Birth:</label><br>
         <input id="individual-finder-dob-datepicker">
       </p>
+
+      <div id="individual-finder-court-ordered-section" class="hidden">
+        <p>
+          <label for "individual-finder-court-order-code-txtbox">Court Order Verification Code:</label><br>
+          <input id="individual-finder-court-order-code-txtbox" type=password><br>
+        </p>
+      </div>
 
       <div id="individual-finder-record-found" class="hidden">
         <p>

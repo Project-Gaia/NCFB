@@ -20,6 +20,7 @@ VolunteerManager.module("VolunteerApp.WelcomeScreen", function(WelcomeScreen
 
       onRender: function(){
         // TODO: DEBUG ONLY
+        // Reset saved values here
         VolunteerManager.VolunteerApp.PersonCreated = false;
       },
 

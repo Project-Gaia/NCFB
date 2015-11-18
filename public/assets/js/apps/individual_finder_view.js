@@ -16,7 +16,8 @@ VolunteerManager.module("VolunteerApp.IndividualFinder", function(IndividualFind
         btnStartOver: "#individual-finder-start-over-btn",
         divCannotFindUser: "#individual-finder-cannot-find-user",
         btnCreateAccount: "#individual-finder-create-account-btn",
-        divUserFound: "#individual-finder-record-found"
+        divUserFound: "#individual-finder-record-found",
+        divCourtOrderedSection: "#individual-finder-court-ordered-section"
       },
 
       events: {
@@ -28,6 +29,10 @@ VolunteerManager.module("VolunteerApp.IndividualFinder", function(IndividualFind
 
       onRender: function(){
         this.ui.datepicker.datepicker();
+
+        if (VolunteerManager.VolunteerApp.IsCourtOrdered){
+          this.ui.divCourtOrderedSection.removeClass("hidden");
+        }
       },
 
       BtnFindOnClick: function(){
