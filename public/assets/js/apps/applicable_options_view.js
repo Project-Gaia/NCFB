@@ -12,15 +12,54 @@ VolunteerManager.module("VolunteerApp.ApplicableOptions", function(ApplicableOpt
         btnNext: "#applicable-options-next-btn",
         individualRadioBox: "#applicable-options-individual-radio-box",
         groupRadioBox: "#applicable-options-group-radio-box",
-        courtOrderedRadioBox: "#applicable-options-court-ordered-radiobox"
+        courtOrderedRadioBox: "#applicable-options-court-ordered-radiobox",
+        divGroupSection: "#applicable-options-group-picker-section"
       },
 
       events: {
         "click @ui.btnNext": "BtnNextOnClick",
+        "click @ui.groupRadioBox": "RadioBoxGroupOnClick",
+        "click @ui.individualRadioBox" : "RadioBoxIndividualOnClick",
+        "click @ui.courtOrderedRadioBox" : "RadioBoxCourtOrderedOnClick"
       },
 
       onRender: function(){
         this.ui.numHoursSpinner.spinner();
+      },
+
+      RadioBoxCourtOrderedOnClick: function(){
+        if (this.ui.divGroupSection.is(":visible")){
+          this.ui.divGroupSection.addClass("hidden");
+        }
+      },
+
+      RadioBoxIndividualOnClick: function(){
+        if (this.ui.divGroupSection.is(":visible")){
+          this.ui.divGroupSection.addClass("hidden");
+        }
+      },
+
+      RadioBoxGroupOnClick: function(){
+
+        this.ui.divGroupSection.removeClass("hidden");
+
+        //TODO: This will need to be retrieved from the DB
+        var group_names = [
+          "IBM",
+          "Cisco",
+          "Red Hat",
+          "Blue Shield Blue Cross",
+          "Metlife",
+          "Bronto",
+          "Fedelity",
+          "Cerner"
+        ];
+
+        $("#applicable-options-group-picker-dropdown").autocomplete({
+          source: group_names
+        });
+
+
       },
 
       BtnNextOnClick: function(e){
