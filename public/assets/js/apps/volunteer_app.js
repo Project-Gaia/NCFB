@@ -9,7 +9,9 @@ VolunteerManager.module("VolunteerApp", function(VolunteerApp, VolunteerManager,
          "welcomeScreen": "displayWelcomeScreen",
          "applicableOptions": "displayApplicableOptions",
          "individualFinder": "displayIndividualFinder",
-         "signUp": "displaySignUp"
+         "groupFinder": "displayGroupFinder",
+         "signUp": "displaySignUp",
+         "checkInSuccessful": "displayCheckInSuccessful"
        }
      })
 
@@ -23,8 +25,14 @@ VolunteerManager.module("VolunteerApp", function(VolunteerApp, VolunteerManager,
        displayIndividualFinder: function(){
          VolunteerApp.IndividualFinder.Controller.display();
        },
+       displayGroupFinder: function(){
+         VolunteerApp.GroupFinder.Controller.display();
+       },
        displaySignUp: function(){
          VolunteerApp.SignUp.Controller.display();
+       },
+       displayCheckInSuccessful: function(){
+         VolunteerApp.CheckInSuccessful.Controller.display();
        }
      };
 

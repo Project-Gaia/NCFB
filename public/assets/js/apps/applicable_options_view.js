@@ -82,7 +82,8 @@ VolunteerManager.module("VolunteerApp.ApplicableOptions", function(ApplicableOpt
           VolunteerManager.VolunteerApp.IsIndividual = false;
           VolunteerManager.VolunteerApp.IsCourtOrdered = false;
 
-          //TODO: Add controller and view pages for group people finder/adder
+          VolunteerManager.VolunteerApp.GroupFinder.Controller.display();
+          Backbone.history.navigate("groupFinder");
         }
         else if (this.ui.courtOrderedRadioBox.is(":checked"))
         {
