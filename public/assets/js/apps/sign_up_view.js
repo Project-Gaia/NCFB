@@ -16,6 +16,7 @@ VolunteerManager.module("VolunteerApp.SignUp", function(SignUp
       template: "#sign-up-template",
 
       ui: {
+        divTxtBoxFirstName: "#sign-up-first-name-txtbox-div",
         txtboxFirstName: "#sign-up-first-name-txtbox",
         txtboxLastName: "#sign-up-last-name-txtbox",
         datepicker: "#sign-up-dob-datepicker",
@@ -44,7 +45,11 @@ VolunteerManager.module("VolunteerApp.SignUp", function(SignUp
         $('#terms-modal-container').html(modalView.render().el);
 
         $("#btn-agree-terms").on("click", function(){
-          console.log("user agrees!");
+          // Auto check the agree checkbox once user clicked I agree
+          if (!$("#sign-up-terms-agreement").checked)
+          {
+            $("#sign-up-terms-agreement").prop("checked", true);
+          }
         });
 
         $("#btn-disagree-terms").on("click", function(){
@@ -56,9 +61,12 @@ VolunteerManager.module("VolunteerApp.SignUp", function(SignUp
         e.preventDefault();
         e.stopPropagation();
         // TODO: DEBUG ONLY
-        VolunteerManager.VolunteerApp.PersonCreated = true;
-        VolunteerManager.VolunteerApp.IndividualFinder.Controller.display();
-        Backbone.history.navigate("individualFinder");
+
+        if(!this.OnCreateValidation()){
+          VolunteerManager.VolunteerApp.PersonCreated = true;
+          VolunteerManager.VolunteerApp.IndividualFinder.Controller.display();
+          Backbone.history.navigate("individualFinder");
+        }
       },
 
       BtnCancelOnClick: function(e){
@@ -66,6 +74,24 @@ VolunteerManager.module("VolunteerApp.SignUp", function(SignUp
         e.stopPropagation();
         VolunteerManager.VolunteerApp.WelcomeScreen.Controller.display();
         Backbone.history.navigate("welcomeScreen");
+      },
+
+      OnCreateValidation: function(){
+        // The following are required fields
+        // First Name
+        // Last Name
+        // Date of Birth
+        // Emergency Contact
+        // Emergency Contact #
+        var has_error = false;
+
+        if (this.ui.txtboxFirstName.val() == "")
+        {
+          has_error = true;
+          this.ui.divTxtBoxFirstName.addClass("error")
+        }
+
+        return has_error;
       }
 
     })
