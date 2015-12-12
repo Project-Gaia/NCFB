@@ -105,50 +105,83 @@
       <div class="app" id="terms-modal-container"></div>
 
       <p>
-        <div id="sign-up-first-name-txtbox-div">
-        <label for "sign-up-first-name-txtbox">First Name</label><br>
-        <input id="sign-up-first-name-txtbox"><br>
+        <div id="sign-up-first-name-txtbox-div" class="form-group">
+          <label for "sign-up-first-name-txtbox">First Name</label><br>
+          <input id="sign-up-first-name-txtbox" class="form-control" style="width:152px"><br>
         </div>
-        <label for "sign-up-last-name-txtbox">Last Name</label><br>
-        <input id="sign-up-last-name-txtbox"><br>
-        <label for "sign-up-company-school-org">Company/School/Organization</label><br>
-        <input id="sign-up-company-school-org"><br>
-        <label for "sign-up-address">Permanent Address</label><br>
-        <input id="sign-up-address"><br>
-        <label for "sign-up-home-phone">Home Phone</label><br>
-        <input id="sign-up-home-phone"><br>
-        <label for "sign-up-cell-phone">Cell Phone</label><br>
-        <input id="sign-up-cell-phone"><br>
-        <label for "sign-up-email">Email</label><br>
-        <input id="sign-up-email"><br>
-        <label for "sign-up-dob-datepicker">Date of Birth</label><br>
-        <input id="sign-up-dob-datepicker"><br>
+        <div id="sign-up-last-name-txtbox-div" class="form-group">
+          <label for "sign-up-last-name-txtbox">Last Name</label><br>
+          <input id="sign-up-last-name-txtbox" class="form-control" style="width:152px"><br>
+        </div>
+        <div id="sign-up-company-school-org-div" class="form-group">
+          <label for "sign-up-company-school-org">Company/School/Organization</label><br>
+          <input id="sign-up-company-school-org" class="form-control" style="width:152px"><br>
+        </div>
+        <div id="sign-up-address-div" class="form-group">
+          <label for "sign-up-address">Permanent Address</label><br>
+          <input id="sign-up-address" class="form-control" style="width:152px"><br>
+        </div>
+        <div id="sign-up-home-phone-div" class="form-group">
+          <label for "sign-up-home-phone">Home Phone</label><br>
+          <input id="sign-up-home-phone" class="form-control" style="width:152px"><br>
+        </div>
+        <div id="sign-up-cell-phone-div" class="form-group">
+          <label for "sign-up-cell-phone">Cell Phone</label><br>
+          <input id="sign-up-cell-phone" class="form-control" style="width:152px"><br>
+        </div>
+        <div id="sign-up-email-div" class="form-group">
+          <label for "sign-up-email">Email</label><br>
+          <input id="sign-up-email" class="form-control" style="width:152px"><br>
+        </div>
+        <div id="sign-up-dob-datepicker-div" class="form-group">
+          <label for "sign-up-dob-datepicker">Date of Birth</label><br>
+          <input id="sign-up-dob-datepicker" class="form-control" style="width:152px"><br>
+        </div>
 
         <label>
           Do you have any physical restrictions or special needs
         </label><br>
 
-        <label><input type="checkbox" id="sign-up-no-physical-restrictions-checkbox">No</label>
-        <label><input type="checkbox" id="sign-up-yes-physical-restrictions-checkbox">Yes</label><br>
+        <label class="checkbox-inline">
+          <input type="checkbox" id="sign-up-no-physical-restrictions-checkbox">No
+        </label>
+        <label class="checkbox-inline">
+          <input type="checkbox" id="sign-up-yes-physical-restrictions-checkbox">Yes
+        </label>
+        <br>
 
         <label>
           Do you have any special skills or areas of interest?
         </label><br>
 
-        <label><input type="checkbox" id="sign-up-no-special-skills-checkbox">No</label>
-        <label><input type="checkbox" id="sign-up-yes-special-skills-checkbox">Yes</label><br>
+        <label class="checkbox-inline">
+          <input type="checkbox" id="sign-up-no-special-skills-checkbox">No
+        </label>
+        <label class="checkbox-inline">
+          <input type="checkbox" id="sign-up-yes-special-skills-checkbox">Yes
+        </label>
+        <br>
+        <br>
 
-
-        <label for "sign-up-emergency-contact">Emergency Contact</label><br>
-        <input id="sign-up-emergency-contact"><br>
-        <label for "sign-up-emergency-contact-phone">Emergency Contact Phone #</label><br>
-        <input id="sign-up-emergency-contact-phone"><br>
-        <label for "sign-up-emergency-contact-relationship">Relationship with Emergency Contact</label><br>
-        <input id="sign-up-emergency-contact-relationship"><br>
-        <label><input type="checkbox" id="sign-up-terms-agreement">I agree with NC Food Bank
+        <div id="sign-up-emergency-contact-div" class="form-group">
+          <label for "sign-up-emergency-contact">Emergency Contact</label><br>
+          <input id="sign-up-emergency-contact" class="form-control" style="width:152px"><br>
+        </div>
+        <div id="sign-up-emergency-contact-phone-div" class="form-group">
+          <label for "sign-up-emergency-contact-phone">Emergency Contact Phone #</label><br>
+          <input id="sign-up-emergency-contact-phone" class="form-control" style="width:152px"><br>
+        </div>
+        <div id="sign-up-emergency-contact-relationship-div" class="form-group">
+          <label for "sign-up-emergency-contact-relationship">Relationship with Emergency Contact</label><br>
+          <input id="sign-up-emergency-contact-relationship" class="form-control" style="width:152px"><br>
+        </div>
+        <label class="checkbox-inline">
+          <input type="checkbox" id="sign-up-terms-agreement">I agree with NC Food Bank
           <a href="#signUp" class="open" id="terms-link">
             terms.
-          </a></label><br>
+          </a>
+        </label>
+        <br>
       </p>
 
       <button id="sign-up-create-btn" class="btn btn-large btn-success">Create</button>

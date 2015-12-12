@@ -17,6 +17,10 @@ VolunteerManager.module("VolunteerApp.SignUp", function(SignUp
 
       ui: {
         divTxtBoxFirstName: "#sign-up-first-name-txtbox-div",
+        divTxtBoxLastName: "#sign-up-last-name-txtbox-div",
+        divDoBDatePicker: "#sign-up-dob-datepicker-div",
+        divEmergencyContact: "#sign-up-emergency-contact-div",
+        divEmergencyContactPhone: "#sign-up-emergency-contact-phone-div",
         txtboxFirstName: "#sign-up-first-name-txtbox",
         txtboxLastName: "#sign-up-last-name-txtbox",
         datepicker: "#sign-up-dob-datepicker",
@@ -84,11 +88,36 @@ VolunteerManager.module("VolunteerApp.SignUp", function(SignUp
         // Emergency Contact
         // Emergency Contact #
         var has_error = false;
+        VolunteerManager.VolunteerApp.HasError = false;
 
         if (this.ui.txtboxFirstName.val() == "")
         {
           has_error = true;
-          this.ui.divTxtBoxFirstName.addClass("error")
+          this.ui.divTxtBoxFirstName.addClass("has-error");
+        }
+
+        if (this.ui.txtboxLastName.val() == "")
+        {
+          has_error = true;
+          this.ui.divTxtBoxLastName.addClass("has-error");
+        }
+
+        if (this.ui.datepicker.val() == "")
+        {
+          has_error = true;
+          this.ui.divDoBDatePicker.addClass("has-error");
+        }
+
+        if (this.ui.txtboxEmergencyContact.val() == "")
+        {
+          has_error = true;
+          this.ui.divEmergencyContact.addClass("has-error");
+        }
+
+        if (this.ui.txtboxEmergencyContactNumber.val() == "")
+        {
+          has_error = true;
+          this.ui.divEmergencyContactPhone.addClass("has-error");
         }
 
         return has_error;
