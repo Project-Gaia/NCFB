@@ -50,14 +50,19 @@ VolunteerManager.module("VolunteerApp.SignUp", function(SignUp
 
         $("#btn-agree-terms").on("click", function(){
           // Auto check the agree checkbox once user clicked I agree
-          if (!$("#sign-up-terms-agreement").checked)
+          if (!$("#sign-up-terms-agreement").prop("checked"))
           {
             $("#sign-up-terms-agreement").prop("checked", true);
           }
         });
 
         $("#btn-disagree-terms").on("click", function(){
-          console.log("user disagrees!");
+          // Auto uncheck the agree checkbox once user clicked I disagree
+          // only if it was checked
+          if ($("#sign-up-terms-agreement").prop("checked"))
+          {
+            $("#sign-up-terms-agreement").prop("checked", false);
+          }
         });
       },
 

@@ -40,21 +40,35 @@
       <div>
         <p>
           <label for="num-hours-spinner">Number of Hours:</label><br>
-          <input id="num-hours-spinner" name="value">
+          <input id="num-hours-spinner" class="form-control" name="value">
         </p>
-        <input type="radio" name="volunteer-type" value="individual" id="applicable-options-individual-radio-box">Individual<br>
-        <input type="radio" name="volunteer-type" value="group" id="applicable-options-group-radio-box">Group<br>
-        <input type="radio" name="volunteer-type" value="court-ordered" id="applicable-options-court-ordered-radiobox">Court Ordered<br>
+        <label class="radio-inline">
+          <input type="radio" name="volunteer-type" value="individual" id="applicable-options-individual-radio-box">Individual
+        </label>
+        <br>
+        <label class="radio-inline">
+          <input type="radio" name="volunteer-type" value="group" id="applicable-options-group-radio-box">Group
+        </label>
+        <br>
+        <label class="radio-inline">
+          <input type="radio" name="volunteer-type" value="court-ordered" id="applicable-options-court-ordered-radiobox">Court Ordered
+        </label>
+        <br>
       </div>
 
       <div id="applicable-options-group-picker-section" class="hidden">
           <br>
           <p>
-            <label for "applicable-options-group-picker-dropdown">Group Name:</label><br>
-            <input id="applicable-options-group-picker-dropdown"><br>
+            <div id="applicable-options-group-picker-dropdown-div" class="form-group">
+              <label for "applicable-options-group-picker-dropdown">Group Name:</label>
+              <br>
+              <input id="applicable-options-group-picker-dropdown" class="form-control" style="width:152px">
+              <br>
+            </div>
           </p>
           <br>
       </div>
+      <br>
 
       <button id="applicable-options-next-btn" class="btn btn-large btn-success"> Next </button>
     </script>
@@ -63,18 +77,31 @@
       <h1>Find yourself and check-in</h1>
 
       <p>
-        <label for "individual-finder-first-name-txtbox">First Name:</label><br>
-        <input id="individual-finder-first-name-txtbox"><br>
-        <label for "individual-finder-last-name-txtbox">Last Name:</label><br>
-        <input id="individual-finder-last-name-txtbox"><br>
-        <label for "individual-finder-dob-datepicker">Date of Birth:</label><br>
-        <input id="individual-finder-dob-datepicker">
+        <div id="individual-finder-first-name-txtbox-div" class="form-group">
+          <label for "individual-finder-first-name-txtbox">First Name:</label>
+          <br>
+          <input id="individual-finder-first-name-txtbox" class="form-control" style="width:152px">
+        </div>
+        <div id="individual-finder-last-name-txtbox-div" class="form-group">
+          <label for "individual-finder-last-name-txtbox">Last Name:</label>
+          <br>
+          <input id="individual-finder-last-name-txtbox" class="form-control" style="width:152px">
+        </div>
+        <div id="individual-finder-dob-datepicker-div" class="form-group">
+          <label for "individual-finder-dob-datepicker">Date of Birth:</label>
+          <br>
+          <input id="individual-finder-dob-datepicker" class="form-control" style="width:152px">
+        </div>
       </p>
 
       <div id="individual-finder-court-ordered-section" class="hidden">
         <p>
-          <label for "individual-finder-court-order-code-txtbox">Court Order Verification Code:</label><br>
-          <input id="individual-finder-court-order-code-txtbox" type=password><br>
+          <div id="individual-finder-court-ordered-code-txtbox-div" class="form-group">
+            <label for "individual-finder-court-order-code-txtbox">Court Order Verification Code:</label>
+            <br>
+            <input id="individual-finder-court-order-code-txtbox" type=password class="form-control" style="width:152px">
+            <br>
+          </div>
         </p>
       </div>
 
