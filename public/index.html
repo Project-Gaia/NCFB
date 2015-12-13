@@ -74,7 +74,12 @@
     </script>
 
     <script type="text/template" id="individual-finder-template">
-      <h1>Find yourself and check-in</h1>
+      <div id="individual-finder-check-in-header-div">
+        <h1>Find yourself and check-in</h1>
+      </div>
+      <div id="individual-finder-check-out-header-div" class="hidden">
+        <h1>Find yourself and check-out</h1>
+      </div>
 
       <p>
         <div id="individual-finder-first-name-txtbox-div" class="form-group">
@@ -124,6 +129,7 @@
       </div>
       <button id="individual-finder-find-btn" class="btn btn-large btn-warning">Find</button>
       <button id="individual-finder-check-in-btn" class="btn btn-large btn-success" disabled>Check-In</button>
+      <button id="individual-finder-check-out-btn" class="btn btn-large btn-success hidden" disabled>Check-Out</button>
       <button id="individual-finder-start-over-btn" class="btn btn-large btn-danger">Start Over</button>
     </script>
 
@@ -249,9 +255,16 @@
     </script>
 
     <script type="text/template" id="check-in-successful-template">
-      <h1>
-        <span class="label label-success">Check-In Successful!</span>
-      </h1>
+      <div id="check-in-successful-div">
+        <h1>
+          <span class="label label-success">Check-In Successful!</span>
+        </h1>
+      </div>
+      <div id="check-out-successful-div" class="hidden">
+        <h1>
+          <span class="label label-success">Check-Out Successful!</span>
+        </h1>
+      </div>
       <br>
       <br>
       <button id="check-in-successful-start-over-btn" class="btn btn-large btn-primary">Start Over</button>

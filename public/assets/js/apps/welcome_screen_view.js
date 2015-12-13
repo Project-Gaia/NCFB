@@ -27,12 +27,27 @@ VolunteerManager.module("VolunteerApp.WelcomeScreen", function(WelcomeScreen
       CheckInOnClick: function(e){
         e.preventDefault();
         e.stopPropagation();
+        VolunteerManager.VolunteerApp.IsCheckIn = true;
         VolunteerManager.VolunteerApp.ApplicableOptions.Controller.display();
         Backbone.history.navigate("applicableOptions");
       },
 
-      CheckOutOnClick: function(){
-        console.log("Check-out clicked!");
+      CheckOutOnClick: function(e){
+        e.preventDefault();
+        e.stopPropagation();
+
+/*
+VolunteerManager.VolunteerApp.IsIndividual = true;
+VolunteerManager.VolunteerApp.IsGroup = false;
+VolunteerManager.VolunteerApp.IsCourtOrdered = false;
+
+VolunteerManager.VolunteerApp.IndividualFinder.Controller.display();
+Backbone.history.navigate("individualFinder");
+*/
+        VolunteerManager.VolunteerApp.IsIndividual = true;
+        VolunteerManager.VolunteerApp.IsCheckIn = false;
+        VolunteerManager.VolunteerApp.IndividualFinder.Controller.display();
+        Backbone.history.navigate("individualFinder");
       }
 
     })

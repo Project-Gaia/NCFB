@@ -13,18 +13,22 @@ VolunteerManager.module("VolunteerApp.IndividualFinder", function(IndividualFind
         datepicker: "#individual-finder-dob-datepicker",
         btnFind: "#individual-finder-find-btn",
         btnCheckIn: "#individual-finder-check-in-btn",
+        btnCheckOut: "#individual-finder-check-out-btn",
         btnStartOver: "#individual-finder-start-over-btn",
         divCannotFindUser: "#individual-finder-cannot-find-user",
         btnCreateAccount: "#individual-finder-create-account-btn",
         divUserFound: "#individual-finder-record-found",
-        divCourtOrderedSection: "#individual-finder-court-ordered-section"
+        divCourtOrderedSection: "#individual-finder-court-ordered-section",
+        divCheckInHeader: "#individual-finder-check-in-header-div",
+        divCheckOutHeader: "#individual-finder-check-out-header-div",
       },
 
       events: {
         "click @ui.btnFind": "BtnFindOnClick",
         "click @ui.btnStartOver": "BtnStartOverOnClick",
         "click @ui.btnCreateAccount": "BtnCreateAccount",
-        "click @ui.btnCheckIn": "BtnCheckIn"
+        "click @ui.btnCheckIn": "BtnCheckIn",
+        "click @ui.btnCheckOut": "BtnCheckOut"
       },
 
       onRender: function(){
@@ -33,6 +37,17 @@ VolunteerManager.module("VolunteerApp.IndividualFinder", function(IndividualFind
         if (VolunteerManager.VolunteerApp.IsCourtOrdered){
           this.ui.divCourtOrderedSection.removeClass("hidden");
         }
+
+        if(!VolunteerManager.VolunteerApp.IsCheckIn){
+
+          // Selectively show the correct header
+          this.ui.divCheckInHeader.addClass("hidden");
+          this.ui.divCheckOutHeader.removeClass("hidden");
+
+          // Selectively show the correct button
+          this.ui.btnCheckIn.addClass("hidden");
+          this.ui.btnCheckOut.removeClass("hidden");
+        }
       },
 
       BtnFindOnClick: function(){
@@ -40,7 +55,12 @@ VolunteerManager.module("VolunteerApp.IndividualFinder", function(IndividualFind
         if (VolunteerManager.VolunteerApp.PersonCreated)
         {
           this.ui.divUserFound.removeClass("hidden");
-          this.ui.btnCheckIn.prop("disabled", false);
+          if (VolunteerManager.VolunteerApp.IsCheckIn){
+            this.ui.btnCheckIn.prop("disabled", false);
+          }
+          else {
+            this.ui.btnCheckOut.prop("disabled", false);
+          }
         }
         else
         {
@@ -63,6 +83,13 @@ VolunteerManager.module("VolunteerApp.IndividualFinder", function(IndividualFind
       },
 
       BtnCheckIn: function(e){
+        e.preventDefault();
+        e.stopPropagation();
+        VolunteerManager.VolunteerApp.CheckInSuccessful.Controller.display();
+        Backbone.history.navigate("checkInSuccessful");
+      },
+
+      BtnCheckOut: function(e){
         e.preventDefault();
         e.stopPropagation();
         VolunteerManager.VolunteerApp.CheckInSuccessful.Controller.display();

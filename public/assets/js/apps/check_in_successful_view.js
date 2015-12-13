@@ -8,11 +8,21 @@ VolunteerManager.module("VolunteerApp.CheckInSuccessful", function(CheckInSucces
       template: "#check-in-successful-template",
 
       ui: {
-        startOverBtn: "#check-in-successful-start-over-btn"
+        startOverBtn: "#check-in-successful-start-over-btn",
+        checkInSuccessfulDiv: "#check-in-successful-div",
+        checkOutSuccessfulDiv: "#check-out-successful-div"
       },
 
       events: {
         "click @ui.startOverBtn": "StartOverOnClick"
+      },
+
+      onRender: function(){
+        if (!VolunteerManager.VolunteerApp.IsCheckIn)
+        {
+          this.ui.checkInSuccessfulDiv.addClass("hidden");
+          this.ui.checkOutSuccessfulDiv.removeClass("hidden");
+        }
       },
 
       StartOverOnClick: function(e){
