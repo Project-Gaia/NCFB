@@ -17,11 +17,14 @@ VolunteerManager.module("VolunteerApp.SignUp", function(SignUp
 
       ui: {
         divTxtBoxFirstName: "#sign-up-first-name-txtbox-div",
+        divTxtBoxMiddleName: "#sign-up-middle-name-txtbox-div",
         divTxtBoxLastName: "#sign-up-last-name-txtbox-div",
         divDoBDatePicker: "#sign-up-dob-datepicker-div",
         divEmergencyContact: "#sign-up-emergency-contact-div",
         divEmergencyContactPhone: "#sign-up-emergency-contact-phone-div",
+        divSignUpAgreement: "#sign-up-terms-agreement-div",
         txtboxFirstName: "#sign-up-first-name-txtbox",
+        txtboxMiddleName: "#sign-up-middle-name-txtbox",
         txtboxLastName: "#sign-up-last-name-txtbox",
         datepicker: "#sign-up-dob-datepicker",
         txtboxEmergencyContact: "#sign-up-emergency-contact",
@@ -100,11 +103,23 @@ VolunteerManager.module("VolunteerApp.SignUp", function(SignUp
           has_error = true;
           this.ui.divTxtBoxFirstName.addClass("has-error");
         }
+        else{
+            if (this.ui.divTxtBoxFirstName.hasClass("has-error"))
+            {
+                this.ui.divTxtBoxFirstName.removeClass("has-error");
+            }
+        }
 
         if (this.ui.txtboxLastName.val() == "")
         {
           has_error = true;
           this.ui.divTxtBoxLastName.addClass("has-error");
+        }
+        else{
+            if (this.ui.divTxtBoxLastName.hasClass("has-error"))
+            {
+                this.ui.divTxtBoxLastName.removeClass("has-error");
+            }
         }
 
         if (this.ui.datepicker.val() == "")
@@ -112,11 +127,23 @@ VolunteerManager.module("VolunteerApp.SignUp", function(SignUp
           has_error = true;
           this.ui.divDoBDatePicker.addClass("has-error");
         }
+        else{
+            if (this.ui.divDoBDatePicker.hasClass("has-error"))
+            {
+                this.ui.divDoBDatePicker.removeClass("has-error");
+            }
+        }
 
         if (this.ui.txtboxEmergencyContact.val() == "")
         {
           has_error = true;
           this.ui.divEmergencyContact.addClass("has-error");
+        }
+        else{
+            if (this.ui.divEmergencyContact.hasClass("has-error"))
+            {
+                this.ui.divEmergencyContact.removeClass("has-error");
+            }
         }
 
         if (this.ui.txtboxEmergencyContactNumber.val() == "")
@@ -124,7 +151,26 @@ VolunteerManager.module("VolunteerApp.SignUp", function(SignUp
           has_error = true;
           this.ui.divEmergencyContactPhone.addClass("has-error");
         }
-
+        else{
+            if (this.ui.divEmergencyContactPhone.hasClass("has-error"))
+            {
+                this.ui.divEmergencyContactPhone.removeClass("has-error");
+            }
+        }
+        
+        // this.ui.groupRadioBox.is(":checked"))
+        if (!this.ui.checkboxAgreeTerms.is(":checked"))
+        {
+            has_error = true;
+            this.ui.divSignUpAgreement.addClass("has-error")
+        }
+        else{
+            if (this.ui.divSignUpAgreement.hasClass("has-error"))
+            {
+                this.ui.divSignUpAgreement.removeClass("has-error");
+            }
+        }
+          
         return has_error;
       }
 
